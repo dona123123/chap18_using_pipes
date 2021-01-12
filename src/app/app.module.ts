@@ -1,3 +1,4 @@
+// 1/12/2021 p449  done
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { ProductComponent } from "./component";
@@ -11,13 +12,24 @@ import { PaCellColorSwitcher } from "./cellColorSwitcher.directive";
 import { ProductTableComponent } from "./productTable.component";
 import { ProductFormComponent } from "./productForm.component";
 import { PaToggleView } from "./toggleView.component";
+import { PaAddTaxPipe } from "./addTax.pipe";
+import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
+
+import{ LOCALE_ID} from "@angular/core";
+import  localeFr from "@angular/common/locales/fr";
+import{ registerLocaleData} from "@angular/common";
+
+registerLocaleData( localeFr);
+
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule],
     declarations: [ProductComponent, PaAttrDirective, PaModel,
         PaStructureDirective, PaIteratorDirective,
         PaCellColor, PaCellColorSwitcher, ProductTableComponent,
-        ProductFormComponent, PaToggleView],
+        ProductFormComponent, PaToggleView,
+        PaAddTaxPipe , PaCategoryFilterPipe],
+    //providers: [{ provide: LOCALE_ID, useValue: "fr-FR"}],
     bootstrap: [ProductComponent]
 })
 export class AppModule { }
